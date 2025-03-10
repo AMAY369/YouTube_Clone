@@ -25,10 +25,12 @@ const Container = styled.div`
   color: ${({ theme }) => theme.text};
   font-size: 14px;
   position: sticky;
-  top:0
+  top:0;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 `;
 const Wrapper = styled.div`
-  padding: 7px 26px;
+  padding: 18px 26px;
 `;
 const Logo = styled.div`
   display: flex;
