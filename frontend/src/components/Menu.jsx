@@ -20,15 +20,15 @@ import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightne
 
 const Container = styled.div`
   flex:1;
-  background-color: #171616;
+  background-color:  ${({ theme }) => theme.bgLighter};
   height: 100vh;
-  color: white;
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
   position: sticky;
   top:0
 `;
 const Wrapper = styled.div`
-  padding: 18px 26px;
+  padding: 7px 26px;
 `;
 const Logo = styled.div`
   display: flex;
@@ -45,8 +45,11 @@ const Item = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 7.5px 0px;
+  padding: 5px 0px;
   cursor: pointer;
+  &:hover {
+    background-color: ${({ theme }) => theme.soft};
+  }
 `;
 
 const Hr = styled.hr`
@@ -70,7 +73,14 @@ const Button = styled.button`
   gap: 5px;
 `;
 
-function Menu(){
+const Title = styled.h2`
+  font-size: 16px;
+  font-weight: bold;
+  color: #aaaaaa;
+  margin-bottom: 20px;
+`;
+
+function Menu({darkMode, setDarkMode}){
   return(
     <Container>
       <Wrapper>
@@ -91,6 +101,7 @@ function Menu(){
           Subscription
         </Item>
         <Hr/>
+        <Title>You</Title>
         <Item>
           <VideoLibraryOutlinedIcon/>
           Library
@@ -106,6 +117,7 @@ function Menu(){
           </Button>
         </Login>
         <Hr/>
+        <Title>Explore</Title>
         <Item>
           <LibraryMusicOutlinedIcon/>
           Music
@@ -143,7 +155,7 @@ function Menu(){
           <HelpOutlineOutlinedIcon/>
           Help
         </Item>
-        <Item>
+        <Item onClick={()=>setDarkMode(!darkMode)}>
           <SettingsBrightnessOutlinedIcon/>
           Light Mode
         </Item>
