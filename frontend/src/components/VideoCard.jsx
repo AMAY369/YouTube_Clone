@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 
 const Container = styled.div`
   width: 360px;
-  margin-bottom: 45px;
+  margin-bottom: 40px;
   cursor: pointer;
   gap: 10px;
 `;
@@ -41,7 +42,7 @@ const Title = styled.h1`
 const ChannelName = styled.h2`
   font-size: 14px;
   color: ${({ theme }) => theme.textSoft};
-  margin: 9px 0px;
+  margin: 3px 0px;
 `;
 
 const Info = styled.div`
@@ -51,14 +52,15 @@ const Info = styled.div`
 
 function VideoCard() {
   return (
-    <Container>
+    <Link to="/video/test" > 
+      <Container>
         <Image
           src="https://i.ytimg.com/vi/AJSCSi96Dbc/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBcxEJ_PY7NQjgAKiAVT5HiR7LzoQ"
-        />
+          />
         <Details>
           <ChannelImage
             src="https://yt3.ggpht.com/yti/APfAmoE-Q0ZLJ4vk3vqmV4Kwp0sbrjxLyB8Q4ZgNsiRH=s88-c-k-c0x00ffffff-no-rj-mo"
-          />
+            />
           <Texts>
             <Title>How it feels to be WEALTHY</Title>
             <ChannelName>Explore Life</ChannelName>
@@ -66,6 +68,7 @@ function VideoCard() {
           </Texts>
         </Details>
       </Container>
+    </Link>
   )
 }
 

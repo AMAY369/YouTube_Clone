@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import VideoCard from '../VideoCard';
 
 const Container = styled.div`
+  margin-top: 60px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
