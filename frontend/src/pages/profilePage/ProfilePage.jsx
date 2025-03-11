@@ -1,10 +1,10 @@
 import React from 'react'
-import './profile.css';
+import './ProfilePage.css';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { Link } from 'react-router-dom';
 import Sidebar from '../../components/sidebar/Sidebar';
 
-const Profile = ({ sidebar }) => {
+const ProfilePage = ({ sidebar }) => {
     return (
         <div className='profile'>
             <Sidebar sidebar={sidebar}/>
@@ -13,17 +13,17 @@ const Profile = ({ sidebar }) => {
 
                 <div className="profile_top_section">
                     <div className="profile_top_section_profile">
-                        <img className='profile_top_section_img' src={"https://yt3.googleusercontent.com/ytc/AIdro_mhd3RmfiJf5zWwaPpmuJ2sG2-vu0Zy7Apo7J0-HbNG7dE=s160-c-k-c0x00ffffff-no-rj"} alt="profile picture" />
+                        <img className='profile_top_section_img' src={"https://yt3.googleusercontent.com/ytc/AIdro_laf9dDyNATE1_RdVUKthwnwT9TSm9N0my0jL2H8gCvjw=s160-c-k-c0x00ffffff-no-rj"} alt="profile picture" />
                     </div>
 
                       <div className="profile_top_section_About">
-                        <div className="profile_top_section_About_Name">Aperture
+                        <div className="profile_top_section_About_Name">SuperSimpleDev
                         </div>
                         <div className="profile_top_section_info">
-                        @ApertureThinking • 2.4M subscribers • 435 videos
+                        <span className="profile_channelId">@SuperSimpleDev</span> • 613K subscribers • 27 videos
                         </div>
                         <div className="profile_top_section_info">
-                          Personal view on life, death, and existance
+                          Hello I'm Simon Bao! 
                         </div>
                       </div>
 
@@ -37,14 +37,14 @@ const Profile = ({ sidebar }) => {
                         {/* Please watch the video for the code} */}
 
                         <div className="profileVideo_block_thumbnail">
-                          <img src="https://i.ytimg.com/vi/EFkyxzJtiv4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDI-GA9VyfuGxjkx5etTh-xk3fH7Q" alt="thumbnail" className="profileVideo_block_thumbnail_img" />
+                          <img src="https://i.ytimg.com/vi/G3e-cpL7ofc/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCCzc4ewpkxURquXXP_3msLhO2JrQ" alt="thumbnail" className="profileVideo_block_thumbnail_img" />
                         </div>
                         <div className="profileVideo_block_detail">
                           <div className="profileVideo_block_detail_name">
-                          Stoicism: Become Undefeatable
+                          HTML & CSS Full Course - Beginner to Pro
                           </div>
                           <div className="profileVideo_block_detail_about">
-                            Created at 26/03/2020
+                          14M views 3 years ago
                           </div>
                         </div>
 
@@ -52,14 +52,14 @@ const Profile = ({ sidebar }) => {
                       <Link to={"/watch/12"} className="profileVideo_block">
 
                         <div className="profileVideo_block_thumbnail">
-                          <img src="https://i.ytimg.com/vi/EFkyxzJtiv4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDI-GA9VyfuGxjkx5etTh-xk3fH7Q" alt="thumbnail" className="profileVideo_block_thumbnail_img" />
+                          <img src="https://i.ytimg.com/vi/EerdGm-ehJQ/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBzmEjYy7Zqv2YzmRwwQa83uH9j2Q" alt="thumbnail" className="profileVideo_block_thumbnail_img" />
                         </div>
                         <div className="profileVideo_block_detail">
                           <div className="profileVideo_block_detail_name">
-                          Stoicism: Become Undefeatable
+                          JavaScript Tutorial Full Course - Beginner to Pro
                           </div>
                           <div className="profileVideo_block_detail_about">
-                            Created at 26/03/2020
+                          4.1M views 10 months ago
                           </div>
                         </div>
 
@@ -67,14 +67,14 @@ const Profile = ({ sidebar }) => {
                       <Link to={'/watch/134'} className="profileVideo_block">
 
                         <div className="profileVideo_block_thumbnail">
-                          <img src="https://i.ytimg.com/vi/EFkyxzJtiv4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDI-GA9VyfuGxjkx5etTh-xk3fH7Q" alt="thumbnail" className="profileVideo_block_thumbnail_img" />
+                          <img src="https://i.ytimg.com/vi/ZXIN4Nee5JU/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBLIHLy-Q2L6oGFTc2GML_k7QQYQw" alt="thumbnail" className="profileVideo_block_thumbnail_img" />
                         </div>
                         <div className="profileVideo_block_detail">
                           <div className="profileVideo_block_detail_name">
-                          Stoicism: Become Undefeatable
+                          React 19 Course (2025) - Lesson 1: React Basics
                           </div>
                           <div className="profileVideo_block_detail_about">
-                            Created at 26/03/2020
+                          1.2M views 6 months ago
                           </div>
                         </div>
 
@@ -87,4 +87,4 @@ const Profile = ({ sidebar }) => {
     )
 }
 
-export default Profile
+export default ProfilePage

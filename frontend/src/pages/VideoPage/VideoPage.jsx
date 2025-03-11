@@ -1,5 +1,5 @@
 import React from 'react';
-import './video.css';
+import './VideoPage.css';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
 import { Link } from 'react-router-dom';

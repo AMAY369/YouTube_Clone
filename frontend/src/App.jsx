@@ -4,8 +4,8 @@ import './App.css';
 import Navbar from './components/navbar/Navbar';
 import HomePage from './pages/homePage/HomePage';
 import { useState } from 'react';
-import Video from './pages/Video/Video';
-import Profile from './pages/profile/Profile';
+import VideoPage from './pages/VideoPage/VideoPage';
+import ProfilePage from './pages/profilePage/ProfilePage';
 function App() {
 
   const [sidebar, setSidebar] = useState(true);
@@ -18,8 +18,8 @@ function App() {
       <Navbar setSidebarFun={setSidebarFun} sidebar={sidebar} />
       <Routes>
         <Route path='/' element={<HomePage sidebar={sidebar}/>}/>
-        <Route path='/watch/:id' element={<Video/>}/>
-        <Route path='/user/:id' element={<Profile sidebar={sidebar}/>}/>
+        <Route path='/watch/:id' element={<VideoPage/>}/>
+        <Route path='/user/:id' element={<ProfilePage sidebar={sidebar}/>}/>
       </Routes>
     </div>
   );
