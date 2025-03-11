@@ -6,15 +6,15 @@ import VideoCallIcon from '@mui/icons-material/VideoCall';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
+const Navbar = ({setSidebarFun,sidebar}) => {
   const [userProfile, setUserProfile] = useState("https://t3.ftcdn.net/jpg/03/53/11/00/360_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg")
   const [navbarModal,setNavbarModal] = useState(false);
 
   const handleClickModal =()=>{
     setNavbarModal(prev=>!prev);
   }
-  const sideNavbarFunc=()=>{
-    setSideNavbarFunc(!sideNavbar)
+  const sidebarFun=()=>{
+    setSidebarFun(!sidebar)
   }
 
 
@@ -24,7 +24,7 @@ const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
     <div className='navbar'>
 
       <div className="navbar-left">
-        <div className="navbarHamberger" onClick={sideNavbarFunc}>
+        <div className="navbarHamberger" onClick={sidebarFun}>
           <MenuIcon sx={{ color: "white" }} />
         </div>
 

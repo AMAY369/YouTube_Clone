@@ -11,9 +11,9 @@ import SmartDisplayOutlinedIcon from '@mui/icons-material/SmartDisplayOutlined';
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ContentCutIcon from '@mui/icons-material/ContentCut';
-const Sidebar = ({sideNavbar}) => {
+const Sidebar = ({sidebar}) => {
     return (
-        <div className={sideNavbar?"home-sideNavbar":"homeSideNavbarHide"}>
+        <div className={sidebar?"home-sideNavbar":"homeSideNavbarHide"}>
             <div className="home_sideNavbarTop">
                 <div className={`home_sideNavbarTopOption`} >
                     <HomeIcon />
@@ -38,7 +38,10 @@ const Sidebar = ({sideNavbar}) => {
 
                 </div>
 
-                {/* Please watch the video for the code} */}
+                <div className={`home_sideNavbarTopOption`} >
+                    <RecentActorsIcon />
+                    <div className="home_sideNavbarTopOptionTitle" >Your Channel</div>
+                </div>
 
                 <div className={`home_sideNavbarTopOption`} >
                     <PlaylistAddIcon />
@@ -54,9 +57,11 @@ const Sidebar = ({sideNavbar}) => {
                     <div className="home_sideNavbarTopOptionTitle">Watch later</div>
                 </div>
 
-                {/* Please watch the video for the code} */}
+                <div className={`home_sideNavbarTopOption `}>
+                    <ThumbUpAltOutlinedIcon />
+                    <div className="home_sideNavbarTopOptionTitle">Liked Videos</div>
+                </div>
 
-                
                 <div className={`home_sideNavbarTopOption }`}>
                     <ContentCutIcon />
                     <div className="home_sideNavbarTopOptionTitle">Your clips</div>
@@ -66,7 +71,7 @@ const Sidebar = ({sideNavbar}) => {
 
             <div className="home_sideNavbarMiddle">
                 <div className="home_sideNavbarTopOption">
-                    <div className="home_sideNavbarTopOptionTitleHeader">Subscription</div>
+                    <div className="home_sideNavbarTopOptionTitleHeader">Subscriptions</div>
 
                 </div>
 
@@ -81,6 +86,18 @@ const Sidebar = ({sideNavbar}) => {
                     <div className="home_sideNavbarTopOptionTitle">The LallanTop</div>
                 </div>
 
+                <div className="home_sideNavbarTopOption">
+                    <img className='home_sideNavbar_ImgLogo' src='https://th.bing.com/th/id/OIP.Ptvb889e_arCEj1IgCROgAHaHa?rs=1&pid=ImgDetMain' />
+                    <div className="home_sideNavbarTopOptionTitle">NDTV India</div>
+                </div>
+                <div className="home_sideNavbarTopOption">
+                    <img className='home_sideNavbar_ImgLogo' src='https://th.bing.com/th/id/OIP.Ptvb889e_arCEj1IgCROgAHaHa?rs=1&pid=ImgDetMain' />
+                    <div className="home_sideNavbarTopOptionTitle">NDTV India</div>
+                </div>
+                <div className="home_sideNavbarTopOption">
+                    <img className='home_sideNavbar_ImgLogo' src='https://th.bing.com/th/id/OIP.Ptvb889e_arCEj1IgCROgAHaHa?rs=1&pid=ImgDetMain' />
+                    <div className="home_sideNavbarTopOptionTitle">NDTV India</div>
+                </div>
                 <div className="home_sideNavbarTopOption">
                     <img className='home_sideNavbar_ImgLogo' src='https://th.bing.com/th/id/OIP.Ptvb889e_arCEj1IgCROgAHaHa?rs=1&pid=ImgDetMain' />
                     <div className="home_sideNavbarTopOptionTitle">NDTV India</div>

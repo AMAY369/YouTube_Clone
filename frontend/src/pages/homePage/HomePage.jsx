@@ -2,11 +2,11 @@ import React from 'react'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './HomePage.css'
 import Home from '../../components/Home/Home'
-const HomePage = ({sideNavbar}) => {
+const HomePage = ({sidebar}) => {
   return (
     <div className='home'>
-        <Sidebar sideNavbar={sideNavbar}/>
-        <Home/>
+        <Sidebar sidebar={sidebar}/>
+        <Home sidebar={sidebar}/>
 
     </div>
   )

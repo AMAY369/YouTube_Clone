@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './Home.css'
-const Home = () => {
+const Home = ({sidebar}) => {
 
   return (
-    <div>
-      Home
+    <div className={sidebar ? 'homePage' : 'fullHomePage'}>
+
+
     </div>
   )
 }
