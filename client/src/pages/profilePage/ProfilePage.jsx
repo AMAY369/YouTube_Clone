@@ -34,7 +34,6 @@ const ProfilePage = ({ sidebar }) => {
 
                     <div className="profileVideos">
                       <Link to={'/watch/53'} className="profileVideo_block">
-                        {/* Please watch the video for the code} */}
 
                         <div className="profileVideo_block_thumbnail">
                           <img src="https://i.ytimg.com/vi/G3e-cpL7ofc/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCCzc4ewpkxURquXXP_3msLhO2JrQ" alt="thumbnail" className="profileVideo_block_thumbnail_img" />

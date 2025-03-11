@@ -7,6 +7,7 @@ import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Link, useNavigate } from 'react-router-dom';
+import Login from '../Login/Login';
 
 const Navbar = ({setSidebarFun,sidebar}) => {
 
@@ -26,6 +27,22 @@ const Navbar = ({setSidebarFun,sidebar}) => {
   const handleUserProfile = ()=>{
     navigate('/user/123');
     setNavbarModal(false);
+  }
+
+  const [login,setLogin] = useState(false);
+  const handleLogin =(button)=>{
+    setNavbarModal(false);
+
+    if(button==="login"){
+      setLogin(true);
+    }else{
+      console.log("");
+      
+    }
+  }
+
+  const setLoginModal=()=>{
+    setLogin(false);
   }
 
 
@@ -62,7 +79,9 @@ const Navbar = ({setSidebarFun,sidebar}) => {
 
       {/* Right section  */}
       <div className="navbar-right">
-        <VideoCallIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
+        <Link to={'/5432/upload'}>
+          <VideoCallIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
+        </Link>
         <NotificationsIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
         <img onClick={handleClickModal} src={userProfile} className='navbar-right-logo' alt='Logo' />
 
@@ -71,16 +90,20 @@ const Navbar = ({setSidebarFun,sidebar}) => {
             <div onClick={handleUserProfile} className="navbar-modal-option">
               Profile
             </div>
-            <div className="navbar-modal-option">
+            <div className="navbar-modal-option" onClick={()=>handleLogin("login")}>
               LogIn
             </div>
-            <div className="navbar-modal-option">
+            <div className="navbar-modal-option" onClick={()=>handleLogin("logout")}>
               Log Out
             </div>
 
           </div>
         }
       </div>
+
+      {
+        login && <Login setLoginModal={setLoginModal}/>
+      }
     </div>
   )
 }

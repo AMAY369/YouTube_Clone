@@ -1,5 +1,5 @@
 
-import './home.css'
+import './Home.css'
 import { Link } from 'react-router-dom';
 
 const HomePage = ({ sidebar }) => {
@@ -25,7 +25,7 @@ const HomePage = ({ sidebar }) => {
 
 
       <div className={sidebar?"home_mainPage":"home_mainPageWithoutLink"}>
-        <Link to={"/watch/1"} className="youtube_video">
+        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
           <div className="youtube_thumbnailBox">
             <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
             <div className="youtube_video_duration">
@@ -46,7 +46,7 @@ const HomePage = ({ sidebar }) => {
 
           </div>
         </Link>
-        <Link to={'/watch/2'} className="youtube_video">
+        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
           <div className="youtube_thumbnailBox">
             <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
             <div className="youtube_video_duration">
@@ -60,14 +60,14 @@ const HomePage = ({ sidebar }) => {
             </div>
 
             <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">User</div>
-              <div className="youtube_channelName">User</div>
+              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
+              <div className="youtube_channelName">Wonderer</div>
               <div className="youtubeVideo_views">1.3M likes</div>
             </div>
 
           </div>
         </Link>
-        <Link to={'/watch/3'} className="youtube_video">
+        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
           <div className="youtube_thumbnailBox">
             <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
             <div className="youtube_video_duration">
@@ -81,14 +81,14 @@ const HomePage = ({ sidebar }) => {
             </div>
 
             <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">User</div>
-              <div className="youtube_channelName">User</div>
+              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
+              <div className="youtube_channelName">Wonderer</div>
               <div className="youtubeVideo_views">1.3M likes</div>
             </div>
 
           </div>
         </Link>
-        <Link to={'/watch/4'} className="youtube_video">
+        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
           <div className="youtube_thumbnailBox">
             <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
             <div className="youtube_video_duration">
@@ -102,14 +102,14 @@ const HomePage = ({ sidebar }) => {
             </div>
 
             <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">User</div>
-              <div className="youtube_channelName">User</div>
+              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
+              <div className="youtube_channelName">Wonderer</div>
               <div className="youtubeVideo_views">1.3M likes</div>
             </div>
 
           </div>
         </Link>
-        <Link to={'/watch/5'} className="youtube_video">
+        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
           <div className="youtube_thumbnailBox">
             <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
             <div className="youtube_video_duration">
@@ -123,14 +123,14 @@ const HomePage = ({ sidebar }) => {
             </div>
 
             <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">User</div>
-              <div className="youtube_channelName">User</div>
+              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
+              <div className="youtube_channelName">Wonderer</div>
               <div className="youtubeVideo_views">1.3M likes</div>
             </div>
 
           </div>
         </Link>
-        <Link to={'/watch/6'} className="youtube_video">
+        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
           <div className="youtube_thumbnailBox">
             <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
             <div className="youtube_video_duration">
@@ -144,13 +144,14 @@ const HomePage = ({ sidebar }) => {
             </div>
 
             <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">User</div>
-              <div className="youtube_channelName">User</div>
+              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
+              <div className="youtube_channelName">Wonderer</div>
               <div className="youtubeVideo_views">1.3M likes</div>
             </div>
 
           </div>
         </Link>
+        
       </div>
 
 

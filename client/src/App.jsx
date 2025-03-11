@@ -6,6 +6,7 @@ import HomePage from './pages/homePage/HomePage';
 import { useState } from 'react';
 import VideoPage from './pages/VideoPage/VideoPage';
 import ProfilePage from './pages/profilePage/ProfilePage';
+import UploadPage from './pages/uploadPage/UploadPage';
 function App() {
 
   const [sidebar, setSidebar] = useState(true);
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<HomePage sidebar={sidebar}/>}/>
         <Route path='/watch/:id' element={<VideoPage/>}/>
         <Route path='/user/:id' element={<ProfilePage sidebar={sidebar}/>}/>
+        <Route path='/:id/upload' element={<UploadPage/>}/>
       </Routes>
     </div>
   );
