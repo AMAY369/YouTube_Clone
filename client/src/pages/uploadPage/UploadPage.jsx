@@ -2,10 +2,6 @@ import React from 'react'
 import './UploadPage.css';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Link } from 'react-router-dom';
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-
-
 
 const UploadPage = () => {
 
@@ -17,10 +13,7 @@ const UploadPage = () => {
           <YouTubeIcon sx={{ fontSize: "54px", color: "red" }} />
           Upload Video
         </div>
-
         <div className="uploadForm">
-          {/* Please watch the video for the code} */}
-
           <input type="text" placeholder='Title' className="uploadFormInputs" />
           <input type="text" placeholder='Description' className="uploadFormInputs" />
           <input type="text" placeholder='Category' className="uploadFormInputs" />

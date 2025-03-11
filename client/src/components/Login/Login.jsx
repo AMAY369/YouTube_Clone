@@ -3,9 +3,6 @@ import './login.css';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Link } from 'react-router-dom';
 
-import Box from '@mui/material/Box';
-import LinearProgress from '@mui/material/LinearProgress';
-
 const Login = ({ setLoginModal }) => {
 
 
@@ -16,8 +13,6 @@ const Login = ({ setLoginModal }) => {
                     <YouTubeIcon sx={{ fontSize: "54px" }} className='login_youtubeImage' />
                     Login
                 </div>
-
-                {/* Please watch the video for the code} */}
                 <div className="loginCredentials">
                   <div className="userNameLogin">
                     <input type="text" placeholder='Username' className="userNameLoginUserName" />
@@ -29,13 +24,9 @@ const Login = ({ setLoginModal }) => {
 
                 <div className="login_buttons">
                     <div className="login-btn">Login</div>
-                    <Link to={'/signup'} className="login-btn">SignUp</Link>
+                    <Link to={'/signup'} className="login-btn" onClick={()=>setLoginModal()}>SignUp</Link>
                     <div className="login-btn" onClick={()=>setLoginModal()}>Cancel</div>
                 </div>
-
-                {/* Please watch the video for the code} */}
-
-
             </div>
         </div>
     )
