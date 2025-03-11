@@ -1,7 +1,7 @@
 .fullHomePage {
   display: flex;
   flex-direction: column;
-  
+  overflow-y: auto;
   flex: 1;
   min-height: 100vh;
 }
@@ -9,29 +9,60 @@
 .homePage {
   display: flex;
   flex-direction: column;
-  
   flex: 1;
   margin-left: 274px;
   min-height: 100vh;
 }
 
+
 .homePage_options {
   display: flex;
   position: fixed;
-  top: 56px;
+  top: 70px;
   z-index: 1;
   width: 100%;
   box-sizing: border-box;
   gap: 10px;
   flex-shrink: 0;
   height: auto;
-  overflow-x: scroll;
+  overflow-x: auto;
+  white-space: nowrap;
   background-color: black;
-
+}
+.homePage_optionsFull {
+  display: flex;
+  position: fixed;
+  top: 70px;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 10px;
+  flex-shrink: 0;
+  height: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+  background-color: black;
+  padding-left: 50px;
 }
 
 .homePage_options::-webkit-scrollbar {
   width: 12px;
+  height: 8px;
+}
+.homePage_optionsFull::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+}
+
+.homePage_options::-webkit-scrollbar-thumb, 
+.homePage_optionsFull::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+.homePage_options::-webkit-scrollbar-thumb:hover, 
+.homePage_optionsFull::-webkit-scrollbar-thumb:hover {
+  background: black;
 }
 
 .homePage_option {
@@ -55,7 +86,7 @@
   box-sizing: border-box;
   gap: 10px;
   grid-template-columns: 384px 384px 384px;
-  padding: 90px 0 20px 0;
+  padding: 110px 0 20px 0;
   height: 100vh;
 }
 
@@ -64,7 +95,7 @@
   box-sizing: border-box;
   gap: 30px;
   grid-template-columns: 326px 326px 326px 326px;
-  padding: 90px 0 20px 10px;
+  padding: 110px 0 20px 50px;
   background-color: black;
 }
 
@@ -84,13 +115,13 @@
   height: 216px;
 
 }
-.youtube_thumbnailPic{
+.youtube_thumbnail{
   width: 100%;
   height: 100%;
   border-radius: 10px;
 
 }
-.youtube_timingThumbnail{
+.youtube_video_duration{
   position: absolute;
   bottom: 0;
   right: 0;
@@ -98,22 +129,22 @@
   padding: 1px 2px;
   background-color: rgb(42, 42, 42);
   border-radius: 5px;
+  color: white;
 }
 
 .youtubeTitleBox{
   display: flex;
   padding-top: 10px;
 }
-.youtubeTitleBoxProfile{
+.youtube_channel_profileBox{
   width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.youtube_thumbnail_Profile{
+.youtube_channel_profile{
   width: 80%;
-  
   border-radius: 100%;
 }
 
@@ -123,6 +154,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  color: white;
 }
 
 .youtube_videoTitle{

@@ -76,31 +76,31 @@ const Sidebar = ({sidebar}) => {
                 </div>
 
                 <div className="home_sideNavbarTopOption">
-                    <img className='home_sideNavbar_ImgLogo' src='https://www.medianews4u.com/wp-content/uploads/2020/04/Aaj-Tak-2.jpg' />
-                    <div className="home_sideNavbarTopOptionTitle">Aaj Tak</div>
+                    <img className='home_sideNavbar_ImgLogo' src='https://yt3.ggpht.com/kbO4TsJR2jjvQJb3NCo6n4Tyhi54sMgNYvc9WZuRKnmZPxVd6N0altmFS4uZOdYrZ2lecuJQNg=s68-c-k-c0x00ffffff-no-rj' />
+                    <div className="home_sideNavbarTopOptionTitle">Tanmay Bhatt</div>
                 </div>
 
 
                 <div className="home_sideNavbarTopOption">
-                    <img className='home_sideNavbar_ImgLogo' src='https://th.bing.com/th/id/R.bce6ed4af85677ce3b6908ac7e8e631b?rik=DFwXRhY0pZxYIg&pid=ImgRaw&r=0' />
-                    <div className="home_sideNavbarTopOptionTitle">The LallanTop</div>
+                    <img className='home_sideNavbar_ImgLogo' src='https://yt3.ggpht.com/k81o7yBt8HM0SRr13iyLTkpi0eIY8x2VUZcYCYe-D6eDowX4DVzeW2JOuhH5Uube0J9kG1BrEQ=s88-c-k-c0x00ffffff-no-rj' />
+                    <div className="home_sideNavbarTopOptionTitle">Karan Aujla</div>
                 </div>
 
                 <div className="home_sideNavbarTopOption">
-                    <img className='home_sideNavbar_ImgLogo' src='https://th.bing.com/th/id/OIP.Ptvb889e_arCEj1IgCROgAHaHa?rs=1&pid=ImgDetMain' />
-                    <div className="home_sideNavbarTopOptionTitle">NDTV India</div>
+                    <img className='home_sideNavbar_ImgLogo' src='https://yt3.ggpht.com/oQIUnDRGO1gKQM4efucuScxgxnU47ITHlHkviMFH-MfNJxg9zOiS_WkAkKByAiTdFlP-qk78O5E=s88-c-k-c0x00ffffff-no-rj' />
+                    <div className="home_sideNavbarTopOptionTitle">IHA</div>
                 </div>
                 <div className="home_sideNavbarTopOption">
-                    <img className='home_sideNavbar_ImgLogo' src='https://th.bing.com/th/id/OIP.Ptvb889e_arCEj1IgCROgAHaHa?rs=1&pid=ImgDetMain' />
-                    <div className="home_sideNavbarTopOptionTitle">NDTV India</div>
+                    <img className='home_sideNavbar_ImgLogo' src='https://yt3.ggpht.com/1iRrlRhV7RMLlyeLSeYaHjtvql01jATABgZtWeX3GyFcJJNNYp3ICYPgdyUOE6U4Y4PLXee594Q=s88-c-k-c0x00ffffff-no-rj' />
+                    <div className="home_sideNavbarTopOptionTitle">Neso Academy</div>
                 </div>
                 <div className="home_sideNavbarTopOption">
-                    <img className='home_sideNavbar_ImgLogo' src='https://th.bing.com/th/id/OIP.Ptvb889e_arCEj1IgCROgAHaHa?rs=1&pid=ImgDetMain' />
-                    <div className="home_sideNavbarTopOptionTitle">NDTV India</div>
+                    <img className='home_sideNavbar_ImgLogo' src='https://yt3.ggpht.com/MoR-WPxNXG2NLvlCnAD8BH2qpp60qokqjOunTbIB0iUIyBQ3wSWxFeHYdN2RocztO9usJbnOdQ=s88-c-k-c0x00ffffff-no-rj' />
+                    <div className="home_sideNavbarTopOptionTitle">Kushal Pawar</div>
                 </div>
                 <div className="home_sideNavbarTopOption">
-                    <img className='home_sideNavbar_ImgLogo' src='https://th.bing.com/th/id/OIP.Ptvb889e_arCEj1IgCROgAHaHa?rs=1&pid=ImgDetMain' />
-                    <div className="home_sideNavbarTopOptionTitle">NDTV India</div>
+                    <img className='home_sideNavbar_ImgLogo' src='https://yt3.googleusercontent.com/ytc/AIdro_m7SMJAnj2t5VGMGUG3DzHvt6_gj6ovKkSi41lzF4AQrw=s176-c-k-c0x00ffffff-no-rj-mo' />
+                    <div className="home_sideNavbarTopOptionTitle">Seedhe Maut</div>
                 </div>
 
             </div>

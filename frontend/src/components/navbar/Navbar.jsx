@@ -40,9 +40,10 @@ const Navbar = ({setSidebarFun,sidebar}) => {
           <div className="navbar_searchIcon">
             <SearchIcon sx={{fontSize: "28px", color:"white"}}/>
           </div>
-          <div className="navbar_mike">
-            <KeyboardVoiceIcon sx={{ color: "white" }} />
-          </div>
+        </div>
+        
+        <div className="navbar_mike">
+          <KeyboardVoiceIcon sx={{ color: "white" }} />
         </div>
       </div>
 
