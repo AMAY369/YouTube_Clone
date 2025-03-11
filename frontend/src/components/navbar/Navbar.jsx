@@ -6,8 +6,6 @@ import VideoCallIcon from '@mui/icons-material/VideoCall';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-// import PersonIcon from '@mui/icons-material/Person';
-import Login from '../Login/login';
 const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
   const [userProfile, setUserProfile] = useState("https://t3.ftcdn.net/jpg/03/53/11/00/360_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg")
   const [navbarModal,setNavbarModal] = useState(false);
@@ -30,10 +28,8 @@ const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
           <MenuIcon sx={{ color: "white" }} />
         </div>
 
-        <Link to={'/'} className="navbar_youtubeImg">
           <YouTubeIcon sx={{ fontSize: "34px" }} className='navbar_youtubeImage' />
           <div className='navbar_utubeTitle'>YouTube</div>
-        </Link>
 
       </div>
 
