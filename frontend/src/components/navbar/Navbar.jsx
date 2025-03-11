@@ -6,15 +6,26 @@ import VideoCallIcon from '@mui/icons-material/VideoCall';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import { Link, useNavigate } from 'react-router-dom';
+
 const Navbar = ({setSidebarFun,sidebar}) => {
+
+
   const [userProfile, setUserProfile] = useState("https://t3.ftcdn.net/jpg/03/53/11/00/360_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg")
   const [navbarModal,setNavbarModal] = useState(false);
+
+  const navigate = useNavigate()
 
   const handleClickModal =()=>{
     setNavbarModal(prev=>!prev);
   }
   const sidebarFun=()=>{
     setSidebarFun(!sidebar)
+  }
+
+  const handleUserProfile = ()=>{
+    navigate('/user/123');
+    setNavbarModal(false);
   }
 
 
@@ -28,8 +39,10 @@ const Navbar = ({setSidebarFun,sidebar}) => {
           <MenuIcon sx={{ color: "white" }} />
         </div>
 
+        <Link to={'/'} className="navbar_youtubeImg">
           <YouTubeIcon sx={{ fontSize: "34px" }} className='navbar_youtubeImage' />
           <div className='navbar_utubeTitle'>YouTube</div>
+        </Link>
 
       </div>
 
@@ -55,7 +68,7 @@ const Navbar = ({setSidebarFun,sidebar}) => {
 
         { navbarModal &&
           <div className='navbar-modal'>
-            <div className="navbar-modal-option">
+            <div onClick={handleUserProfile} className="navbar-modal-option">
               Profile
             </div>
             <div className="navbar-modal-option">
