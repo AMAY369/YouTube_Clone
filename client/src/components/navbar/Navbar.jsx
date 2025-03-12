@@ -31,6 +31,7 @@ const Navbar = ({ setSidebarFun, sidebar }) => {
   const handleUserProfile = () => {
     let userId = localStorage.getItem("userId")
     navigate(`/user/${userId}`);
+    window.location.reload();
     setNavbarModal(false);
   }
 
