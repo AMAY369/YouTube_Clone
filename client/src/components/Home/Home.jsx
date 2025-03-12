@@ -10,7 +10,6 @@ const HomePage = ({ sidebar }) => {
 
   useEffect(()=>{
     axios.get('http://localhost:3000/api/allVideos').then(res=>{
-      console.log(res.data.videos)
       setData(res.data.videos)
     }).catch(err=>{
       console.log(err);

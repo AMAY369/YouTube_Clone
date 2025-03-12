@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react'
 import './navbar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -8,43 +9,66 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Link, useNavigate } from 'react-router-dom';
 import Login from '../Login/Login';
+import axios from 'axios';
 
-const Navbar = ({setSidebarFun,sidebar}) => {
+const Navbar = ({ setSidebarFun, sidebar }) => {
 
 
   const [userProfile, setUserProfile] = useState("https://t3.ftcdn.net/jpg/03/53/11/00/360_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg")
-  const [navbarModal,setNavbarModal] = useState(false);
+  const [navbarModal, setNavbarModal] = useState(false);
+  const [login, setLogin] = useState(false);
+  const [isLogedIn, setIsLogedIn] = useState(false);
 
   const navigate = useNavigate()
 
-  const handleClickModal =()=>{
-    setNavbarModal(prev=>!prev);
+  const handleClickModal = () => {
+    setNavbarModal(prev => !prev);
   }
-  const sidebarFun=()=>{
+  const sidebarFun = () => {
     setSidebarFun(!sidebar)
   }
 
-  const handleUserProfile = ()=>{
-    navigate('/user/123');
+  const handleUserProfile = () => {
+    let userId = localStorage.getItem("userId")
+    navigate(`/user/${userId}`);
     setNavbarModal(false);
   }
 
-  const [login,setLogin] = useState(false);
-  const handleLogin =(button)=>{
+  const handleLogin = (button) => {
     setNavbarModal(false);
 
-    if(button==="login"){
+    if (button === "login") {
       setLogin(true);
-    }else{
-      console.log("");
-      
+    } else {
+      localStorage.clear();
+      getLogoutFun();
+      setTimeout(() => {
+        navigate('/')
+        window.location.reload();
+      }, 2000);
     }
   }
 
-  const setLoginModal=()=>{
+  const getLogoutFun = async () => {
+    axios.post("http://localhost:3000/auth/logout", {}, { withCredentials: true }).then((res) => {
+      console.log("Logout ")
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+
+  const setLoginModal = () => {
     setLogin(false);
   }
 
+
+  useEffect(() => {
+    let userProfilePic = localStorage.getItem("userProfilePic");
+    setIsLogedIn(localStorage.getItem("userId") !== null ? true : false);
+    if (userProfilePic !== null) {
+      setUserProfile(userProfilePic)
+    }
+  }, [])
 
   return (
 
@@ -66,12 +90,12 @@ const Navbar = ({setSidebarFun,sidebar}) => {
       {/* Middle section  */}
       <div className="navbar-middle">
         <div className="navbar_search">
-          <input type="text" className='navbar_searchInput' placeholder='Search'/>
+          <input type="text" className='navbar_searchInput' placeholder='Search' />
           <div className="navbar_searchIcon">
-            <SearchIcon sx={{fontSize: "28px", color:"white"}}/>
+            <SearchIcon sx={{ fontSize: "28px", color: "white" }} />
           </div>
         </div>
-        
+
         <div className="navbar_mike">
           <KeyboardVoiceIcon sx={{ color: "white" }} />
         </div>
@@ -85,24 +109,28 @@ const Navbar = ({setSidebarFun,sidebar}) => {
         <NotificationsIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
         <img onClick={handleClickModal} src={userProfile} className='navbar-right-logo' alt='Logo' />
 
-        { navbarModal &&
+        {navbarModal &&
           <div className='navbar-modal'>
-            <div onClick={handleUserProfile} className="navbar-modal-option">
-              Profile
-            </div>
-            <div className="navbar-modal-option" onClick={()=>handleLogin("login")}>
+            {
+              isLogedIn && <div onClick={handleUserProfile} className="navbar-modal-option">
+                Profile
+              </div>
+            }
+
+            { !isLogedIn && <div className="navbar-modal-option" onClick={() => handleLogin("login")}>
               LogIn
-            </div>
-            <div className="navbar-modal-option" onClick={()=>handleLogin("logout")}>
+            </div>}
+
+            {isLogedIn && <div className="navbar-modal-option" onClick={() => handleLogin("logout")}>
               Log Out
-            </div>
+            </div>}
 
           </div>
         }
       </div>
 
       {
-        login && <Login setLoginModal={setLoginModal}/>
+        login && <Login setLoginModal={setLoginModal} />
       }
     </div>
   )

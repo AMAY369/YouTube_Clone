@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './UploadPage.css';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
@@ -9,7 +9,9 @@ import Box from '@mui/material/Box';
 const UploadPage = () => {
 
   const [inputField, setInputField] = useState({ "title": "", "description": "", "videoLink": "", "thumbnail": "", "category": "" });
-  const [loader ,setLoader] = useState(false);
+  const [loader, setLoader] = useState(false);
+
+  const navigate = useNavigate()
 
   const handleOnChangeInput = (event, name) => {
     setInputField({
@@ -40,7 +42,16 @@ const UploadPage = () => {
     }
 
   }
+
+
+  useEffect(() => {
+    let isLogin = localStorage.getItem("userId");
+    if (isLogin === null) {
+      navigate('/')
+    }
+  }, [])
   console.log(inputField)
+
 
 
 
