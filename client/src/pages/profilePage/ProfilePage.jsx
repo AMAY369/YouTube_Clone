@@ -11,6 +11,9 @@ const ProfilePage = ({ sidebar }) => {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [user, setUser] = useState(null);
+
+  const picture = localStorage.getItem("userProfilePic")
+
   const fetchProfileData = async () => {
     axios.get(`http://localhost:3000/api/${id}/channel`).then((response) => {
       setData(response.data.video);
@@ -33,15 +36,19 @@ const ProfilePage = ({ sidebar }) => {
 
         <div className="profile_top_section">
           <div className="profile_top_section_profile">
-            <img className='profile_top_section_img' src={user?.profilePic} alt="profile picture" />
+            {user && <img className='profile_top_section_img' src={user?.profilePic} alt="profile picture" />}
+            {!user && <img className='profile_top_section_img' src={picture} alt="profile picture" />}
           </div>
 
           <div className="profile_top_section_About">
             <div className="profile_top_section_About_Name">{user?.channelName}
             </div>
-            <div className="profile_top_section_info">
+            {user && <div className="profile_top_section_info">
               <span className="profile_channelId">{user?.userName}</span> • 613K subscribers • {data?.length} Videos
-            </div>
+            </div>}
+            {!user && <div className="profile_top_section_info">
+              <span className="profile_channelId">{user?.userName}</span>{data?.length} Videos
+            </div>}
             <div className="profile_top_section_info">
               {user?.about}
             </div>
