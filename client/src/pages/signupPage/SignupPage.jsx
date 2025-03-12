@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SignupPage.css';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Link} from 'react-router-dom';
 
 const SignupPage = () => {
+
+    const [singUpFiled, setSignUpField] = useState({ "channelName": "", "userName": "", "password": "", "about": "", "profilePicture": "" });
+
+
+    const handleInputFiled = (event, name) => {
+        setSignUpField({
+            ...singUpFiled, [name]: event.target.value
+        })
+    }
+    console.log(singUpFiled)
+
     return (
         <div className='signUp'>
             <div className="signup_card">
@@ -13,12 +24,12 @@ const SignupPage = () => {
                 </div>
 
                 <div className="signUp_Inputs">
-                    <input type="text" placeholder="Name" className="signUp_Inputs_inp" />
-                    <input type="text" placeholder="User Name" className="signUp_Inputs_inp" />
-                    <input type="password" placeholder="Password" className="signUp_Inputs_inp" />
-                    <input type="text" placeholder="About Your Channel" className="signUp_Inputs_inp" />
+                    <input type="text" value={singUpFiled.channelName} placeholder="Name" className="signUp_Inputs_inp" onChange={(e)=>handleInputFiled(e, "channelName")} />
+                    <input type="text" value={singUpFiled.userName} placeholder="User Name" className="signUp_Inputs_inp" onChange={(e)=>handleInputFiled(e,"userName")}/>
+                    <input type="password" value={singUpFiled.password} placeholder="Password" className="signUp_Inputs_inp" onChange={(e)=>handleInputFiled(e,"password")}/>
+                    <input type="text" value={singUpFiled.about} placeholder="About Your Channel" className="signUp_Inputs_inp" />
                     <div className="image_upload_signup">
-                        <input type='file' />
+                        <input type='file'/>
                         <div className='image_upload_signup_div'>
                         </div>
                     </div>

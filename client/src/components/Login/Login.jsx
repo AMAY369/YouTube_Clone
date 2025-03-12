@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './login.css';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Link } from 'react-router-dom';
 
 const Login = ({ setLoginModal }) => {
 
+  const [loginField, setLoginField] = useState({ "userName": "", "password": "" });
+
+  const handleOnChangeInput = (event, name) => {
+    setLoginField({
+        ...loginField, [name]: event.target.value
+    })
+  }
+
+  console.log(loginField);
+  
 
     return (
         <div className='login'>
@@ -15,10 +25,10 @@ const Login = ({ setLoginModal }) => {
                 </div>
                 <div className="loginCredentials">
                   <div className="userNameLogin">
-                    <input type="text" placeholder='Username' className="userNameLoginUserName" />
+                    <input type="text" value={loginField.userName} placeholder='Username' className="userNameLoginUserName" onChange={(e)=>handleOnChangeInput(e,"userName")}/>
                   </div>
                   <div className="userNameLogin">
-                    <input type="password" placeholder='Password' className="userNameLoginUserName" />
+                    <input type="password" value={loginField.password} placeholder='Password' className="userNameLoginUserName" onChange={(e)=>handleOnChangeInput(e,"password")}/>
                   </div>
                 </div>
 
