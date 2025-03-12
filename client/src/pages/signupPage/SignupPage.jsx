@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import './SignupPage.css';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import { toast, ToastContainer } from 'react-toastify';
 
 const SignupPage = () => {
 
     const [uploadedImageUrl, setUploadedImageUrl] = useState("https://th.bing.com/th/id/OIP.Wy2uo_y-ttULYs4chLmqSAAAAA?rs=1&pid=ImgDetMain");
     const [singUpFiled, setSignUpField] = useState({ "channelName": "", "userName": "", "password": "", "about": "", "profilePic": uploadedImageUrl });
     const [progressBar,setProgressBar] = useState(false);
+
+    const navigate = useNavigate()
 
 
     const handleInputFiled = (event, name) => {
@@ -21,12 +24,25 @@ const SignupPage = () => {
     console.log(singUpFiled)
 
 
+    const handleSignup = async () => {
+        setProgressBar(true);
+        axios.post('http://localhost:3000/auth/signUp', singUpFiled).then((response)=>{
+
+            toast.success(response.data.message)
+            setProgressBar(false)
+            navigate('/')
+
+        }).catch((err)=>{
+            setProgressBar(false)
+            toast.error(err)
+        })
+    }
+
     const uploadImage = async (e) => {
         console.log("Uploading")
         const files = e.target.files;
         const data = new FormData();
         data.append('file', files[0]);
-        // youtube-clone
         data.append('upload_preset', 'youtube_clone');
         try {
             setProgressBar(true)
@@ -63,7 +79,7 @@ const SignupPage = () => {
                     </div>
 
                     <div className="signUpBtns">
-                        <div className="signUpBtn">SignUp</div>
+                        <div className="signUpBtn" onClick={handleSignup}>SignUp</div>
                         <Link to={'/'} className="signUpBtn">Home Page</Link>
 
                     </div>
@@ -75,6 +91,7 @@ const SignupPage = () => {
                 </div>
 
             </div>
+            <ToastContainer/>
         </div>
     )
 }
