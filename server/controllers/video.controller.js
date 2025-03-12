@@ -25,4 +25,25 @@ export const getAllVideo = async(req,res)=>{
   }
 }
 
+export const getVideoById = async (req,res)=>{
+  try{
+      let {id} = req.params;
+       const getVideo = await video.findById(id).populate('user','channelName profilePic userName createdAt');
 
+      res.status(201).json({ sucess: "true", "video": getVideo });
+  }catch (error){
+      res.status(500).json({ error: 'Server error' });
+  }
+}
+
+
+export const getAllVideoByUserID = async(req,res)=>{
+  try{
+      let {userId} = req.params;
+      const videos = await video.find({user:userId}).populate('user','channelName profilePic userName createdAt about');
+      res.status(201).json({ sucess: "true", "video": videos });
+
+  }catch (error){
+      res.status(500).json({ error: 'Server error' });
+  }
+}
