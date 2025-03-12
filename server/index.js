@@ -1,17 +1,24 @@
 import express from "express";
-import mongoose from "mongoose";
 import connectDB from "./db/db.js";
 import userRoutes from './routes/user.route.js'
 import videoRoutes from './routes/video.route.js'
 
 import cookieParser from "cookie-parser";
 import commentRoutes from './routes/comment.route.js'
+import cors from 'cors'
+
 
 const app = express();
 app.use(express.json());
+connectDB();
 app.use(cookieParser());
 
-connectDB();
+
+app.use(cors({
+  origin: 'http://localhost:5000',
+  credentials: true
+}))
+
 
 
 app.use('/auth', userRoutes)
