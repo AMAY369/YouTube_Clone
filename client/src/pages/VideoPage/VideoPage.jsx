@@ -110,7 +110,7 @@ const Video = () => {
                     <div className="youtubeCommentSectionTitle">{comments?.length} Comments</div>
 
                     <div className="youtubeSelfComment">
-                        <img src="https://yt3.ggpht.com/yti/ANjgQV_oeQ6LRwRHh9bq5vkHXIyxybMhNtjupmKNuD53BJOxg-4=s108-c-k-c0x00ffffff-no-rj" alt="profile picture" className='video_youtubeSelfCommentProfile' />
+                        <img src={data?.user?.profilePic} alt="profile picture" className='video_youtubeSelfCommentProfile' />
                         <div className="addAComment">
                             <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} className="addAcommentInput" placeholder='Post a Comment' />
                             <div className="cancelSubmitComment">
