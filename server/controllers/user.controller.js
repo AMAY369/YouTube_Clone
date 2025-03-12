@@ -1,5 +1,6 @@
 import user from '../models/user.model.js';
 import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 
 
 
@@ -27,7 +28,10 @@ export const signIn = async (req,res)=>{
       const { userName, password } = req.body;
       const getUser = await user.findOne({ userName });
       if(getUser && await bcrypt.compare(password, getUser.password)){
-        res.json({message: "logged in successfully", success:"yes"})
+        const token = jwt.sign({userId:getUser._id}, 'Secret_Key');
+        res.cookie('token', token);
+        
+        res.json({message: "logged in successfully", success:"yes", token})
       }
       else{
         res.status(400).json({error:"Invalid Credentials"})
