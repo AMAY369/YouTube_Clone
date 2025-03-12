@@ -1,10 +1,21 @@
 
 import './Home.css'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
 
 const HomePage = ({ sidebar }) => {
+  const [data, setData] = useState([])
 
-
+  useEffect(()=>{
+    axios.get('http://localhost:3000/api/allVideos').then(res=>{
+      console.log(res.data.videos)
+      setData(res.data.videos)
+    }).catch(err=>{
+      console.log(err);
+    })
+  },[])
 
   const options = ["All", "News", "Music", "Podcast", "Mixes", "Data Structure", "MongoDB", "AWS", "Comedy", "AI", "Live", "Web Development", "History", "Thoughts", "Cricket", "Health", "UPSC", "Vlog", "Movies", "Entertainment","Javascript"];
 
@@ -25,9 +36,13 @@ const HomePage = ({ sidebar }) => {
 
 
       <div className={sidebar?"home_mainPage":"home_mainPageWithoutLink"}>
-        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
+
+        {
+          data?.map((item,ind)=>{
+            return(
+              <Link key={ind} to={`/watch/${item._id}`} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
           <div className="youtube_thumbnailBox">
-            <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
+            <img src={`${item?.thumbnail}`} alt="thumbnail" className="youtube_thumbnail" />
             <div className="youtube_video_duration">
               18:06
             </div>
@@ -35,123 +50,20 @@ const HomePage = ({ sidebar }) => {
 
           <div className="youtubeTitleBox">
             <div className="youtube_channel_profileBox">
-              <img src="https://yt3.ggpht.com/uE6umj6hqNQR9AcOYvXUDnr7OFdhBRQbIsnOxS3nn2AzHkFNiUTwNbKeen0VJIBzU3WNOfWWnA=s68-c-k-c0x00ffffff-no-rj" alt="channel profile" className="youtube_channel_profile" />
+              <img src={item?.user?.profilePic} alt="channel profile" className="youtube_channel_profile" />
             </div>
 
             <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
-              <div className="youtube_channelName">Wonderer</div>
-              <div className="youtubeVideo_views">1.3M likes</div>
+              <div className="youtube_videoTitle">{item?.title}</div>
+              <div className="youtube_channelName">{item?.user?.channelName}</div>
+              <div className="youtubeVideo_views">{item?.like} likes</div>
             </div>
 
           </div>
         </Link>
-        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
-          <div className="youtube_thumbnailBox">
-            <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
-            <div className="youtube_video_duration">
-              18:06
-            </div>
-          </div>
-
-          <div className="youtubeTitleBox">
-            <div className="youtube_channel_profileBox">
-              <img src="https://yt3.ggpht.com/uE6umj6hqNQR9AcOYvXUDnr7OFdhBRQbIsnOxS3nn2AzHkFNiUTwNbKeen0VJIBzU3WNOfWWnA=s68-c-k-c0x00ffffff-no-rj" alt="channel profile" className="youtube_channel_profile" />
-            </div>
-
-            <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
-              <div className="youtube_channelName">Wonderer</div>
-              <div className="youtubeVideo_views">1.3M likes</div>
-            </div>
-
-          </div>
-        </Link>
-        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
-          <div className="youtube_thumbnailBox">
-            <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
-            <div className="youtube_video_duration">
-              18:06
-            </div>
-          </div>
-
-          <div className="youtubeTitleBox">
-            <div className="youtube_channel_profileBox">
-              <img src="https://yt3.ggpht.com/uE6umj6hqNQR9AcOYvXUDnr7OFdhBRQbIsnOxS3nn2AzHkFNiUTwNbKeen0VJIBzU3WNOfWWnA=s68-c-k-c0x00ffffff-no-rj" alt="channel profile" className="youtube_channel_profile" />
-            </div>
-
-            <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
-              <div className="youtube_channelName">Wonderer</div>
-              <div className="youtubeVideo_views">1.3M likes</div>
-            </div>
-
-          </div>
-        </Link>
-        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
-          <div className="youtube_thumbnailBox">
-            <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
-            <div className="youtube_video_duration">
-              18:06
-            </div>
-          </div>
-
-          <div className="youtubeTitleBox">
-            <div className="youtube_channel_profileBox">
-              <img src="https://yt3.ggpht.com/uE6umj6hqNQR9AcOYvXUDnr7OFdhBRQbIsnOxS3nn2AzHkFNiUTwNbKeen0VJIBzU3WNOfWWnA=s68-c-k-c0x00ffffff-no-rj" alt="channel profile" className="youtube_channel_profile" />
-            </div>
-
-            <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
-              <div className="youtube_channelName">Wonderer</div>
-              <div className="youtubeVideo_views">1.3M likes</div>
-            </div>
-
-          </div>
-        </Link>
-        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
-          <div className="youtube_thumbnailBox">
-            <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
-            <div className="youtube_video_duration">
-              18:06
-            </div>
-          </div>
-
-          <div className="youtubeTitleBox">
-            <div className="youtube_channel_profileBox">
-              <img src="https://yt3.ggpht.com/uE6umj6hqNQR9AcOYvXUDnr7OFdhBRQbIsnOxS3nn2AzHkFNiUTwNbKeen0VJIBzU3WNOfWWnA=s68-c-k-c0x00ffffff-no-rj" alt="channel profile" className="youtube_channel_profile" />
-            </div>
-
-            <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
-              <div className="youtube_channelName">Wonderer</div>
-              <div className="youtubeVideo_views">1.3M likes</div>
-            </div>
-
-          </div>
-        </Link>
-        <Link to={'/watch/12'} className="youtube_video" style={{textDecoration:"none", color:"inherit"}}>
-          <div className="youtube_thumbnailBox">
-            <img src="https://i.ytimg.com/vi/uGb341KQM_c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDrnZXcKO3dmPK5jj9wrl1Iwfvxcw" alt="thumbnail" className="youtube_thumbnail" />
-            <div className="youtube_video_duration">
-              18:06
-            </div>
-          </div>
-
-          <div className="youtubeTitleBox">
-            <div className="youtube_channel_profileBox">
-              <img src="https://yt3.ggpht.com/uE6umj6hqNQR9AcOYvXUDnr7OFdhBRQbIsnOxS3nn2AzHkFNiUTwNbKeen0VJIBzU3WNOfWWnA=s68-c-k-c0x00ffffff-no-rj" alt="channel profile" className="youtube_channel_profile" />
-            </div>
-
-            <div className='youtubeTitleBox_Title'>
-              <div className="youtube_videoTitle">World's Tallest Man in Egypt</div>
-              <div className="youtube_channelName">Wonderer</div>
-              <div className="youtubeVideo_views">1.3M likes</div>
-            </div>
-
-          </div>
-        </Link>
-        
+            )
+          })
+        }
       </div>
 
 
