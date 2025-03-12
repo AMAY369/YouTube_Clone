@@ -22,7 +22,7 @@ const videoSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    videoType:{
+    category:{
         type:String,
         default:"All"
     },
