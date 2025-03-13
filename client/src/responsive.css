@@ -71,7 +71,7 @@ body {
   }
 }
 
-/* Video Page */
+/* Video Page
 .video_page {
   display: flex;
   flex-direction: column;
@@ -80,7 +80,7 @@ body {
   padding: 30px 0;
   background-color: black;
   color: white;
-}
+} */
 
 .video_youtube {
   width: 100%;
