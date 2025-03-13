@@ -1,6 +1,7 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import "./responsive.css";
 import Navbar from './components/navbar/Navbar';
 import HomePage from './pages/homePage/HomePage';
 import { useState} from 'react';

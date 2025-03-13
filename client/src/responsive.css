@@ -1,0 +1,122 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Responsive Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: black;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
+/* Sidebar */
+.home-sideNavbar {
+  width: 275px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 56px;
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+@media (max-width: 1024px) {
+  .home-sideNavbar {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-sideNavbar {
+    display: none;
+  }
+}
+
+/* Home Page */
+.homePage {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 275px;
+}
+
+@media (max-width: 1024px) {
+  .homePage {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .homePage {
+    margin-left: 0;
+  }
+}
+
+/* Video Page */
+.video_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 56px;
+  padding: 30px 0;
+  background-color: black;
+  color: white;
+}
+
+.video_youtube {
+  width: 100%;
+  max-width: 875px;
+}
+
+@media (max-width: 768px) {
+  .video_youtube {
+    width: 100%;
+  }
+}
+
+/* Login Page */
+.login_card {
+  width: 40%;
+  padding: 60px;
+  background-color: black;
+  box-shadow: 0.5px 0.5px 8px white;
+}
+
+@media (max-width: 768px) {
+  .login_card {
+    width: 90%;
+    padding: 30px;
+  }
+}
+
+/* Signup Page */
+.signup_card {
+  width: 40%;
+  padding: 15px 25px;
+  box-shadow: 0.5px 0.5px 8px white;
+}
+
+@media (max-width: 768px) {
+  .signup_card {
+    width: 90%;
+  }
+}
