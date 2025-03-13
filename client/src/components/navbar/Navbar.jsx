@@ -11,13 +11,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import Login from '../Login/Login';
 import axios from 'axios';
 
-const Navbar = ({ setSidebarFun, sidebar }) => {
+const Navbar = ({ setSidebarFun, sidebar, setSearchResults }) => {
 
 
   const [userProfile, setUserProfile] = useState("https://t3.ftcdn.net/jpg/03/53/11/00/360_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg")
   const [navbarModal, setNavbarModal] = useState(false);
   const [login, setLogin] = useState(false);
   const [isLogedIn, setIsLogedIn] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const navigate = useNavigate()
 
@@ -71,6 +72,18 @@ const Navbar = ({ setSidebarFun, sidebar }) => {
     }
   }, [])
 
+  const handleSearch = async () => {
+    if (searchTerm.trim() !== "") {
+      try {
+        const response = await axios.get(`http://localhost:3000/api/search?q=${searchTerm}`);
+        setSearchResults(response.data.videos || []);
+        navigate("/search"); // Navigate to the new SearchResultsPage
+      } catch (error) {
+        console.error("Error fetching search results:", error);
+      }
+    }
+  };
+
   return (
 
     // Left section
@@ -91,8 +104,8 @@ const Navbar = ({ setSidebarFun, sidebar }) => {
       {/* Middle section  */}
       <div className="navbar-middle">
         <div className="navbar_search">
-          <input type="text" className='navbar_searchInput' placeholder='Search' />
-          <div className="navbar_searchIcon">
+          <input type="text" className='navbar_searchInput' placeholder='Search' onChange={(e)=>setSearchTerm(e.target.value)}/>
+          <div className="navbar_searchIcon" onClick={handleSearch}>
             <SearchIcon sx={{ fontSize: "28px", color: "white" }} />
           </div>
         </div>

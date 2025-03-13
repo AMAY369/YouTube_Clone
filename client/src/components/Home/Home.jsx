@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 
-const HomePage = ({ sidebar }) => {
+const HomePage = ({ sidebar, searchResults }) => {
   const [data, setData] = useState([])
 
   useEffect(()=>{
@@ -15,6 +15,16 @@ const HomePage = ({ sidebar }) => {
       console.log(err);
     })
   },[])
+
+  useEffect(() => {
+    if (!searchResults || searchResults.length === 0) {
+      axios.get('http://localhost:3000/api/allVideos')
+        .then(res => setData(res.data.videos))
+        .catch(err => console.log(err));
+    } else {
+      setData(searchResults);
+    }
+  }, [searchResults]);
 
   const options = ["All", "News", "Music", "Podcast", "Mixes", "Data Structure", "MongoDB", "AWS", "Comedy", "AI", "Live", "Web Development", "History", "Thoughts", "Cricket", "Health", "UPSC", "Vlog", "Movies", "Entertainment","Javascript"];
 
