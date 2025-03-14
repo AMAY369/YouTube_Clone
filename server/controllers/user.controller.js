@@ -8,6 +8,7 @@ const cookieOptions = {
   sameSite: "Lax",
 };
 
+// sign up function for adding new user to the database 
 export const signUp = async (req, res) => {
   try {
     const { channelName, userName, about, profilePic, password } = req.body;
@@ -37,6 +38,8 @@ export const signUp = async (req, res) => {
   }
 };
 
+
+// signIn function for existing users 
 export const signIn = async (req, res) => {
   try {
     const { userName, password } = req.body;
@@ -59,6 +62,8 @@ export const signIn = async (req, res) => {
   }
 };
 
+
+// logout function for logging out 
 export const logout = async (req, res) => {
   res
     .clearCookie("token", cookieOptions)

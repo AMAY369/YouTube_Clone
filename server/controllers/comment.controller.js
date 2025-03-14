@@ -1,5 +1,6 @@
 import comment from "../models/comment.model.js";
 
+// function for adding comments 
 export const addComment = async (req, res) => {
   try {
     let { video, message } = req.body;
@@ -12,6 +13,8 @@ export const addComment = async (req, res) => {
   }
 };
 
+
+// function for getting comments by videoId 
 export const getCommentByVideoId = async (req, res) => {
   try {
     let { videoId } = req.params;

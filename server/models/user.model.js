@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+
+// schema for user model 
 const userSchema = new mongoose.Schema(
   {
     channelName: {

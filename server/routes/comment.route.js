@@ -7,6 +7,8 @@ import auth from "../middlewares/authentication.js";
 
 const router = Router();
 
+
+// defining routes 
 router.post("/comments", auth, addComment);
 router.get("/comment/:videoId", getCommentByVideoId);
 

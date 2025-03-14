@@ -1,5 +1,6 @@
 import video from "../models/video.model.js";
 
+// seaching video in database 
 export const searchVideo = async (req, res) => {
   const searchQuery = req.query.q;
   try {

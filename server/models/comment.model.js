@@ -4,12 +4,12 @@ const commentSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "user",
+      ref: "user",  //reference to user model 
       required: true,
     },
     video: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "video",
+      ref: "video",  //reference to video model 
       required: true,
     },
     message: {

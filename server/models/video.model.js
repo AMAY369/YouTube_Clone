@@ -4,7 +4,7 @@ const videoSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "user",
+      ref: "user",   //reference to user model 
       required: true,
     },
     title: {
@@ -24,7 +24,7 @@ const videoSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      default: "All",
+      default: "All",   //setting default value for video category 
     },
     like: {
       type: Number,
