@@ -13,12 +13,14 @@ const UploadPage = () => {
 
   const navigate = useNavigate()
 
+  // set input field 
   const handleOnChangeInput = (event, name) => {
     setInputField({
       ...inputField, [name]: event.target.value
     })
   }
 
+  // upload thumbnail and video on cloudinary 
   const uploadImage = async (e, type) => {
 
     setLoader(true)
@@ -43,7 +45,7 @@ const UploadPage = () => {
 
   }
 
-
+// fetch userId for checking if user is loggedin 
   useEffect(() => {
     let isLogin = localStorage.getItem("userId");
     if (isLogin === null) {
@@ -51,6 +53,8 @@ const UploadPage = () => {
     }
   }, [])
 
+
+  // uploading video to the backend(mongoDB) 
   const handleUpload = async () => {
     setLoader(true)
     await axios.post('http://localhost:3000/api/video', inputField, { withCredentials: true }).then((res) => {
@@ -92,8 +96,8 @@ const UploadPage = () => {
 
 
         <div className="uploadBtns">
-          <div className="uploadBtn-form" onClick={handleUpload}>Upload</div>
-          <Link to={'/'} className="uploadBtn-form">Home</Link>
+          <div className="uploadBtn-form" onClick={handleUpload}>Upload</div> 
+          <Link to={'/'} className="uploadBtn-form">Home</Link> {/* navigating to home page  */}
         </div>
 
       </div>

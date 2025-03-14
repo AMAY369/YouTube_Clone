@@ -17,6 +17,7 @@ const SignupPage = () => {
     const navigate = useNavigate()
 
 
+    // set signup field 
     const handleInputFiled = (event, name) => {
         setSignUpField({
             ...singUpFiled, [name]: event.target.value
@@ -24,7 +25,7 @@ const SignupPage = () => {
     }
     console.log(singUpFiled)
 
-
+    // post request for craerting new user 
     const handleSignup = async () => {
         setProgressBar(true);
         axios.post('http://localhost:3000/auth/signUp', singUpFiled).then((response) => {
@@ -39,6 +40,7 @@ const SignupPage = () => {
         })
     }
 
+    // uploading images to cloudinary 
     const uploadImage = async (e) => {
         console.log("Uploading")
         const files = e.target.files;
@@ -81,11 +83,11 @@ const SignupPage = () => {
 
                     <div className="signUpBtns">
                         <div className="signUpBtn" onClick={handleSignup}>SignUp</div>
-                        <Link to={'/'} className="signUpBtn">Home Page</Link>
+                        <Link to={'/'} className="signUpBtn">Home Page</Link> {/* navigating to home page */}
 
                     </div>
 
-                    {progressBar && <Box sx={{ width: '100%' }}>
+                    {progressBar && <Box sx={{ width: '100%' }}> {/* progress bar for indicating completion of uploading profile pic */}
                         <LinearProgress />
                     </Box>}
 

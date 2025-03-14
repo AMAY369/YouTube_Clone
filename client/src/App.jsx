@@ -19,12 +19,18 @@ function App() {
   const [sidebar, setSidebar] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
   
+
+  // Function to update sidebar state
   const setSidebarFun=(value)=>{
     setSidebar(value)
   }
   return (
     <div className="App">
+
+      {/* Navbar component with sidebar state and function */}
       <Navbar setSidebarFun={setSidebarFun} sidebar={sidebar} setSearchResults={setSearchResults}/>
+
+      {/* application routes */}
       <Routes>
         <Route path='/' element={<HomePage sidebar={sidebar} searchResults={searchResults}/>}/>
         <Route path='/watch/:id' element={<VideoPage/>}/>

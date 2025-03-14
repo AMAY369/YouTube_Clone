@@ -22,6 +22,7 @@ const Navbar = ({ setSidebarFun, sidebar, setSearchResults }) => {
 
   const navigate = useNavigate()
 
+  // change model function 
   const handleClickModal = () => {
     setNavbarModal(prev => !prev);
   }
@@ -29,6 +30,8 @@ const Navbar = ({ setSidebarFun, sidebar, setSearchResults }) => {
     setSidebarFun(!sidebar)
   }
 
+
+  // function for managing user profile 
   const handleUserProfile = () => {
     let userId = localStorage.getItem("userId")
     navigate(`/user/${userId}`);
@@ -36,6 +39,7 @@ const Navbar = ({ setSidebarFun, sidebar, setSearchResults }) => {
     setNavbarModal(false);
   }
 
+// function for handling user login 
   const handleLogin = (button) => {
     setNavbarModal(false);
 
@@ -51,6 +55,7 @@ const Navbar = ({ setSidebarFun, sidebar, setSearchResults }) => {
     }
   }
 
+  // function for logging out user 
   const getLogoutFun = async () => {
     axios.post("http://localhost:3000/auth/logout", {}, { withCredentials: true }).then((res) => {
       console.log("Logout ")
@@ -63,7 +68,7 @@ const Navbar = ({ setSidebarFun, sidebar, setSearchResults }) => {
     setLogin(false);
   }
 
-
+  // delete 
   useEffect(() => {
     let userProfilePic = localStorage.getItem("userProfilePic");
     setIsLogedIn(localStorage.getItem("userId") !== null ? true : false);
@@ -72,6 +77,7 @@ const Navbar = ({ setSidebarFun, sidebar, setSearchResults }) => {
     }
   }, [])
 
+  // delete 
   const handleSearch = async () => {
     if (searchTerm.trim() !== "") {
       try {

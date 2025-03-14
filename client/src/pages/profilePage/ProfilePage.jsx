@@ -12,8 +12,9 @@ const ProfilePage = ({ sidebar }) => {
   const [data, setData] = useState([]);
   const [user, setUser] = useState(null);
 
-  const picture = localStorage.getItem("userProfilePic")
+  const picture = localStorage.getItem("userProfilePic") // extracting profile picture from local storage
 
+  // fetch channel data using id 
   const fetchProfileData = async () => {
     axios.get(`http://localhost:3000/api/${id}/channel`).then((response) => {
       setData(response.data.video);
@@ -24,14 +25,17 @@ const ProfilePage = ({ sidebar }) => {
     })
 
   }
+
+  // fetching profile detail 
   useEffect(() => {
     fetchProfileData()
   }, [])
 
   return (
     <div className='profile'>
-      <Sidebar sidebar={sidebar} />
+      <Sidebar sidebar={sidebar} /> {/* render sidebar component */}
 
+      {/* profile details  */}
       <div className={sidebar ? "profile_page" : "profile_page_inactive"}>
 
         <div className="profile_top_section">

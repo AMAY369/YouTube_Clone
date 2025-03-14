@@ -8,6 +8,7 @@ const SearchResultsPage = ({ searchResults, sidebar }) => {
 
   const [data, setData] = useState([])
 
+  // fetch all videos from backend 
   useEffect(() => {
     axios.get('http://localhost:3000/api/allVideos').then(res => {
       setData(res.data.videos)
@@ -16,6 +17,7 @@ const SearchResultsPage = ({ searchResults, sidebar }) => {
     })
   }, [])
 
+  // fetch searched videos from backend 
   useEffect(() => {
     if (!searchResults || searchResults.length === 0) {
       axios.get('http://localhost:3000/api/allVideos')
@@ -26,13 +28,16 @@ const SearchResultsPage = ({ searchResults, sidebar }) => {
     }
   }, [searchResults]);
 
+
+  // video categories 
   const options = ["All", "News", "Music", "Podcast", "Mixes", "Data Structure", "MongoDB", "AWS", "Comedy", "AI", "Live", "Web Development", "History", "Thoughts", "Cricket", "Health", "UPSC", "Vlog", "Movies", "Entertainment", "Javascript"];
 
-  console.log(data);
 
   return (
 
     <div className='home'>
+
+      {/* sidebar component  */}
       <Sidebar sidebar={sidebar} />
 
 
@@ -53,6 +58,7 @@ const SearchResultsPage = ({ searchResults, sidebar }) => {
 
         <div className={sidebar ? "home_mainPage" : "home_mainPageWithoutLink"}>
 
+          {/* display all searched videos */}
           {
             data?.map((item, ind) => {
               return (

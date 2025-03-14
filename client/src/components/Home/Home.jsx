@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 const HomePage = ({ sidebar, searchResults }) => {
   const [data, setData] = useState([])
 
+  // fetching all videos 
   useEffect(() => {
     axios.get('http://localhost:3000/api/allVideos').then(res => {
       setData(res.data.videos)
@@ -16,6 +17,7 @@ const HomePage = ({ sidebar, searchResults }) => {
     })
   }, [])
 
+  // fething the searched videos 
   useEffect(() => {
     if (!searchResults || searchResults.length === 0) {
       axios.get('http://localhost:3000/api/allVideos')
@@ -26,11 +28,14 @@ const HomePage = ({ sidebar, searchResults }) => {
     }
   }, [searchResults]);
 
+
+  // video categories
   const options = ["All", "News", "Music", "Podcast", "Mixes", "Data Structure", "MongoDB", "AWS", "Comedy", "AI", "Live", "Web Development", "History", "Thoughts", "Cricket", "Health", "UPSC", "Vlog", "Movies", "Entertainment", "Javascript"];
 
   return (
     <div className={sidebar ? 'homePage' : 'fullHomePage'}>
 
+      {/* Render video categories */}
       <div className={sidebar ? "homePage_options" : "homePage_optionsFull"}>
         {
           options.map((item, index) => {
@@ -43,7 +48,7 @@ const HomePage = ({ sidebar, searchResults }) => {
         }
       </div>
 
-
+        {/* Render video list */}
       <div className={sidebar ? "home_mainPage" : "home_mainPageWithoutLink"}>
 
         {

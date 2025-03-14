@@ -15,12 +15,14 @@ const Login = ({ setLoginModal }) => {
 
   const [loader, setLoader] = useState(false)
 
+  // set login fields 
   const handleOnChangeInput = (event, name) => {
     setLoginField({
       ...loginField, [name]: event.target.value
     })
   }
 
+  // Handle login form submission
   const handleLoginFun = async () => {
     setLoader(true)
     axios.post("http://localhost:3000/auth/login", loginField, { withCredentials: true }).then((resp) => {
@@ -65,6 +67,7 @@ const Login = ({ setLoginModal }) => {
         </Box>}
       </div>
 
+      {/* success and unsuccess message while logging in  */}
       <ToastContainer />
     </div>
   )

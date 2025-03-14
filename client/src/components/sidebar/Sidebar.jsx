@@ -14,6 +14,9 @@ import ContentCutIcon from '@mui/icons-material/ContentCut';
 const Sidebar = ({ sidebar }) => {
     return (
         <div className={sidebar ? "home-sideNavbar" : "homeSideNavbarHide"}>
+
+
+            {/* display sidebar contents  */}
             <div className="home_sideNavbarTop">
                 <div className={`home_sideNavbarTopOption`} >
                     <HomeIcon />
@@ -52,6 +55,10 @@ const Sidebar = ({ sidebar }) => {
                     <SmartDisplayOutlinedIcon />
                     <div className="home_sideNavbarTopOptionTitle">Your videos</div>
                 </div>
+                <div className={`home_sideNavbarTopOption `} >
+                    <HistoryIcon />
+                    <div className="home_sideNavbarTopOptionTitle">History</div>
+                </div>
                 <div className={`home_sideNavbarTopOption `}>
                     <WatchLaterOutlinedIcon />
                     <div className="home_sideNavbarTopOptionTitle">Watch later</div>
@@ -70,6 +77,8 @@ const Sidebar = ({ sidebar }) => {
             </div>
 
             <div className="home_sideNavbarMiddle">
+
+                {/* subscriptions section  */}
                 <div className="home_sideNavbarTopOption">
                     <div className="home_sideNavbarTopOptionTitleHeader">Subscriptions</div>
 

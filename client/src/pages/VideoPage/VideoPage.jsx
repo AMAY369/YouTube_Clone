@@ -15,6 +15,7 @@ const Video = () => {
     const [comments, setComments] = useState([]);
 
 
+    // fetching video by video id 
     const fetchVedioById = async () => {
         await axios.get(`http://localhost:3000/api/getVideoById/${id}`).then((response) => {
             console.log(response.data.video);
@@ -26,6 +27,7 @@ const Video = () => {
     }
 
 
+    // fetching comments by video id 
     const getCommentByVideoId = async () => {
         await axios.get(`http://localhost:3000/api/comment/${id}`).then((response) => {
             console.log(response);
@@ -34,12 +36,16 @@ const Video = () => {
             console.log(err);
         })
     }
+
+    // calling the fetchVideById and getCommentByVideoId functions 
     useEffect(() => {
         fetchVedioById();
         getCommentByVideoId();
     }, [])
 
 
+
+    // function for fetching comments and setting comments 
     const handleComment = async () => {
         const body = {
             "message": message,
@@ -56,11 +62,12 @@ const Video = () => {
         })
     }
 
-    console.log(message);
 
     return (
         <div className='video_page'>
             <div className="videoPostSection">
+
+                {/* video section  */}
                 <div className="video_youtube">
                     {
                         data && <video width="400" controls autoPlay className='video_youtube_video'>
@@ -78,7 +85,7 @@ const Video = () => {
 
                     <div className="youtube_video_ProfileBlock">
                         <div className="youtube_video_ProfileBlock_left">
-                            <Link to={`/user/${data?.user?._id}`} className="youtube_video_ProfileBlock_left_img">
+                            <Link to={`/user/${data?.user?._id}`} className="youtube_video_ProfileBlock_left_img"> {/* navigating to user profile  */}
                                 <img src={data?.user?.profilePic} className="youtube_video_ProfileBlock_left_image" />
                             </Link>
                             <div className="youtubeVideo_subsView">
@@ -90,14 +97,15 @@ const Video = () => {
 
                         <div className="youtube_video_likeBlock">
                             <div className="youtube_video_likeBlock_Like">
-                                <ThumbUpOutlinedIcon />
+                                <ThumbUpOutlinedIcon /> {/* like button */}
                                 <div className=".youtube_video_likeBlock_Like">
                                     {data?.like}
                                 </div>
                             </div>
                             <div className="youtubeVideoDivider"></div>
                             <div className="youtube_video_likeBlock_like">
-                                <ThumbDownAltOutlinedIcon />
+                                <ThumbDownAltOutlinedIcon /> 
+                                {/* dislike button */}
                             </div>
                         </div>
                     </div>
@@ -109,6 +117,8 @@ const Video = () => {
                 </div>
 
                 <div className="youtubeCommentSection">
+
+                    {/* comments setion */}
                     <div className="youtubeCommentSectionTitle">{comments?.length} Comments</div>
 
                     <div className="youtubeSelfComment">
@@ -124,6 +134,8 @@ const Video = () => {
                     </div>
 
                     <div className="youtubeOthersComments">
+
+                        {/* displaying comments  */}
                         {
                             comments?.map((item, index) => {
                                 return (
@@ -148,6 +160,8 @@ const Video = () => {
                 </div>
             </div>
 
+
+            {/* recommendation section  */}
             <div className="videoSuggestions">
 
                 <div className="videoSuggestionsBlock">
