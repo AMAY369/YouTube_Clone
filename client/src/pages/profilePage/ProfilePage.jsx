@@ -74,7 +74,7 @@ const ProfilePage = ({ sidebar }) => {
                         {item?.title}
                       </div>
                       <div className="profileVideo_block_detail_about">
-                        {item?.createdAt.slice(1,10)}
+                        {item?.createdAt.slice(1, 10)}
                       </div>
                     </div>
 

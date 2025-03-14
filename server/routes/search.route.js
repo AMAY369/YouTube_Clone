@@ -1,8 +1,8 @@
-import { Router } from 'express';
+import { Router } from "express";
 const router = Router();
 
-import { searchVideo } from '../controllers/search.controller.js';
+import { searchVideo } from "../controllers/search.controller.js";
 
-router.get('/search',searchVideo);
+router.get("/search", searchVideo);
 
 export default router;

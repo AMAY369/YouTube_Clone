@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './SignupPage.css';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -12,7 +12,7 @@ const SignupPage = () => {
 
     const [uploadedImageUrl, setUploadedImageUrl] = useState("https://th.bing.com/th/id/OIP.Wy2uo_y-ttULYs4chLmqSAAAAA?rs=1&pid=ImgDetMain");
     const [singUpFiled, setSignUpField] = useState({ "channelName": "", "userName": "", "password": "", "about": "", "profilePic": uploadedImageUrl });
-    const [progressBar,setProgressBar] = useState(false);
+    const [progressBar, setProgressBar] = useState(false);
 
     const navigate = useNavigate()
 
@@ -27,13 +27,13 @@ const SignupPage = () => {
 
     const handleSignup = async () => {
         setProgressBar(true);
-        axios.post('http://localhost:3000/auth/signUp', singUpFiled).then((response)=>{
+        axios.post('http://localhost:3000/auth/signUp', singUpFiled).then((response) => {
 
             toast.success(response.data.message)
             setProgressBar(false)
             navigate('/')
 
-        }).catch((err)=>{
+        }).catch((err) => {
             setProgressBar(false)
             toast.error(err)
         })
@@ -68,14 +68,14 @@ const SignupPage = () => {
                 </div>
 
                 <div className="signUp_Inputs">
-                    <input type="text" value={singUpFiled.channelName} placeholder="Name" className="signUp_Inputs_inp" onChange={(e)=>handleInputFiled(e, "channelName")} />
-                    <input type="text" value={singUpFiled.userName} placeholder="User Name" className="signUp_Inputs_inp" onChange={(e)=>handleInputFiled(e,"userName")}/>
-                    <input type="password" value={singUpFiled.password} placeholder="Password" className="signUp_Inputs_inp" onChange={(e)=>handleInputFiled(e,"password")}/>
-                    <input type="text" value={singUpFiled.about} placeholder="About Your Channel" className="signUp_Inputs_inp" onChange={(e)=>handleInputFiled(e,"about")} />
+                    <input type="text" value={singUpFiled.channelName} placeholder="Name" className="signUp_Inputs_inp" onChange={(e) => handleInputFiled(e, "channelName")} />
+                    <input type="text" value={singUpFiled.userName} placeholder="User Name" className="signUp_Inputs_inp" onChange={(e) => handleInputFiled(e, "userName")} />
+                    <input type="password" value={singUpFiled.password} placeholder="Password" className="signUp_Inputs_inp" onChange={(e) => handleInputFiled(e, "password")} />
+                    <input type="text" value={singUpFiled.about} placeholder="About Your Channel" className="signUp_Inputs_inp" onChange={(e) => handleInputFiled(e, "about")} />
                     <div className="image_upload_signup">
-                        <input type='file' onChange={(e)=>uploadImage(e)}/>
+                        <input type='file' onChange={(e) => uploadImage(e)} />
                         <div className='image_upload_signup_div'>
-                        <img className='image_default_signUp' src={uploadedImageUrl} />
+                            <img className='image_default_signUp' src={uploadedImageUrl} />
                         </div>
                     </div>
 
@@ -92,7 +92,7 @@ const SignupPage = () => {
                 </div>
 
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     )
 }

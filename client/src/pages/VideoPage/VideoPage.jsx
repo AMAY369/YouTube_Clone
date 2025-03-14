@@ -40,23 +40,23 @@ const Video = () => {
     }, [])
 
 
-        const handleComment = async()=>{
-            const body = {
-                "message":message,
-                "video":id
-            }
-            await axios.post('http://localhost:3000/api/comments',body, { withCredentials: true }).then((resp)=>{
-                console.log(resp)
-                const newComment = resp.data.comment;
-                setComments([newComment,...comments]);
-                setMessage("")
-                // window.location.reload();
-            }).catch(err=>{
-                toast.error("Please Login First to comment", err)
-            })
+    const handleComment = async () => {
+        const body = {
+            "message": message,
+            "video": id
         }
+        await axios.post('http://localhost:3000/api/comments', body, { withCredentials: true }).then((resp) => {
+            console.log(resp)
+            const newComment = resp.data.comment;
+            setComments([newComment, ...comments]);
+            setMessage("")
+            // window.location.reload();
+        }).catch(err => {
+            toast.error("Please Login First to comment", err)
+        })
+    }
 
-       console.log(message);
+    console.log(message);
 
     return (
         <div className='video_page'>
@@ -195,7 +195,7 @@ const Video = () => {
                 </div>
             </div>
 
-            <ToastContainer/>
+            <ToastContainer />
 
         </div>
     )

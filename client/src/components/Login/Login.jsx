@@ -12,7 +12,7 @@ const Login = ({ setLoginModal }) => {
 
   const [loginField, setLoginField] = useState({ "userName": "", "password": "" });
   console.log(loginField);
-  
+
   const [loader, setLoader] = useState(false)
 
   const handleOnChangeInput = (event, name) => {
@@ -23,7 +23,7 @@ const Login = ({ setLoginModal }) => {
 
   const handleLoginFun = async () => {
     setLoader(true)
-    axios.post("http://localhost:3000/auth/login", loginField,{ withCredentials: true}).then((resp) => {
+    axios.post("http://localhost:3000/auth/login", loginField, { withCredentials: true }).then((resp) => {
       setLoader(false)
       console.log(resp)
       localStorage.setItem("token", resp.data?.token)
@@ -60,12 +60,12 @@ const Login = ({ setLoginModal }) => {
           <div className="login-btn" onClick={() => setLoginModal()}>Cancel</div>
         </div>
 
-        { loader && <Box sx={{ width: '100%' }}>
-            <LinearProgress />
+        {loader && <Box sx={{ width: '100%' }}>
+          <LinearProgress />
         </Box>}
       </div>
 
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   )
 }

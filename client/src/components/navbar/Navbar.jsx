@@ -104,7 +104,7 @@ const Navbar = ({ setSidebarFun, sidebar, setSearchResults }) => {
       {/* Middle section  */}
       <div className="navbar-middle">
         <div className="navbar_search">
-          <input type="text" className='navbar_searchInput' placeholder='Search' onChange={(e)=>setSearchTerm(e.target.value)}/>
+          <input type="text" className='navbar_searchInput' placeholder='Search' onChange={(e) => setSearchTerm(e.target.value)} />
           <div className="navbar_searchIcon" onClick={handleSearch}>
             <SearchIcon sx={{ fontSize: "28px", color: "white" }} />
           </div>
@@ -131,7 +131,7 @@ const Navbar = ({ setSidebarFun, sidebar, setSearchResults }) => {
               </div>
             }
 
-            { !isLogedIn && <div className="navbar-modal-option" onClick={() => handleLogin("login")}>
+            {!isLogedIn && <div className="navbar-modal-option" onClick={() => handleLogin("login")}>
               LogIn
             </div>}
 

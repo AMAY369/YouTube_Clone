@@ -50,20 +50,20 @@ const UploadPage = () => {
       navigate('/')
     }
   }, [])
- 
-  const handleUpload = async()=>{
+
+  const handleUpload = async () => {
     setLoader(true)
-    await axios.post('http://localhost:3000/api/video', inputField, {withCredentials:true}).then((res)=>{
+    await axios.post('http://localhost:3000/api/video', inputField, { withCredentials: true }).then((res) => {
       console.log(res.data)
       setLoader(false);
       navigate('/')
 
-    }).catch((err)=>{
+    }).catch((err) => {
       console.log(err);
       setLoader(false);
     })
 
-}
+  }
 
 
 
