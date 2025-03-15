@@ -1,6 +1,8 @@
 import user from "../models/user.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const cookieOptions = {
   httpOnly: true,
@@ -45,7 +47,7 @@ export const signIn = async (req, res) => {
     const { userName, password } = req.body;
     const getUser = await user.findOne({ userName });
     if (getUser && (await bcrypt.compare(password, getUser.password))) {
-      const token = jwt.sign({ userId: getUser._id }, "Secret_Key");
+      const token = jwt.sign({ userId: getUser._id }, process.env.JWT_SECRET_KEY);
       res.cookie("token", token, cookieOptions);
 
       res.json({

@@ -8,6 +8,12 @@ import commentRoutes from "./routes/comment.route.js";
 import cors from "cors";  // Middleware for handling Cross-Origin Resource Sharing (CORS)
 import searchRoutes from "./routes/search.route.js";
 
+import dotenv from 'dotenv';
+dotenv.config();
+
+
+const PORT = process.env.PORT || 4000;
+
 const app = express(); // Initialize Express application
 app.use(express.json());
 
@@ -23,6 +29,7 @@ app.use(
   })
 );
 
+console.log(process.env.PORT)
 
 // Define API routes
 app.use("/auth", userRoutes);
@@ -32,6 +39,6 @@ app.use("/api", commentRoutes);
 
 
 // Start the server on port 3000
-app.listen(3000, () => {
-  console.log("Server is running on PORT 3000");
+app.listen(PORT, () => {
+  console.log(`Server is running on PORT ${PORT}`);
 });

@@ -12,6 +12,7 @@ const UploadPage = () => {
   const [loader, setLoader] = useState(false);
 
   const navigate = useNavigate()
+ 
 
   // set input field 
   const handleOnChangeInput = (event, name) => {
