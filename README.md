@@ -20,7 +20,9 @@ MERN Stack Youtube Clone
    ```sh
    npm install
    ```
-3. Start the backend server:
+3. Update credentials in .env file
+
+4. Start the backend server:
    ```sh
    npm start
    ```
